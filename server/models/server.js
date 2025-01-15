@@ -15,11 +15,11 @@ class Server {
 
     if (process.env.NODE_ENV == "development"){
       this.key = "server.key";
-      this.cert = "server.crt";
+      this.cert = "server.cert";
     }
     else{
       this.key = "/etc/ssl/server.key";
-      this.cert = "/etc/ssl/server.crt";
+      this.cert = "/etc/ssl/server.cert";
     }
 
     // Load SSL Certificates
@@ -30,7 +30,7 @@ class Server {
 
     this.app = express();
     this.port = process.env.PORT || 8080; // HTTP port
-    this.httpsPort = process.env.HTTPS_PORT || 8081; // HTTPS port
+    this.httpsPort = process.env.HTTPS_PORT || 8070; // HTTPS port
     this.sslOptions = sslOptions;
 
     this.paths = {
